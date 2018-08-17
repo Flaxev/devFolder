@@ -3,23 +3,36 @@ import ClockHand from '../view/clockhand.js';
 import Hour from '../view/hour.js';
 import Min from '../view/min.js';
 import Sec from '../view/sec.js';
-import obtainelement from './objectselector.js';
+import obtainElement from './objectselector.js';
 
 
 
 
 var boxFact = {
 
+	createClockHand : function () {
+
+		console.log('el elemento es: ');
+		console.log(objTarget);
+		let ClockHandInstance = new ClockHand();
+		let objTarget = obtainElement('#clock');
+		ClockHandInstance.setPosDegrees('0');
+		ClockHandInstance.setObjName('#clock');
+		ClockHandInstance.setObjtarget(objTarget); 
+
+
+	},
+
 	createHour : function () {
 
 		let hourInstance = new Hour();
 
 		
-		let objTarget = obtainelement('#hour');
+		let objTarget = obtainElement('#hour');
 
 		console.log('el elemento es: ');
 		console.log(objTarget);
-		hourInstance.setPosGrados(0);
+		hourInstance.setPosDegrees(0);
 		hourInstance.setObjtarget(objTarget);
 		hourInstance.setObjName('#hour');
 
@@ -29,11 +42,11 @@ var boxFact = {
 	createMin : function() {
 
 		let minInstance = new Min();
-		let objTarget = obtainelement('#minute');
+		let objTarget = obtainElement('#minute');
 		console.log('el elemento es: ');
 		console.log(objTarget);
 		
-		minInstance.setPosGrados(0);
+		minInstance.setPosDegrees(0);
 		minInstance.setObjtarget(objTarget);
 		minInstance.setObjName('#minute');
 
@@ -42,12 +55,12 @@ var boxFact = {
 
 	createSec : function() {
 		
-		let objTarget = obtainelement('#second');
+		let objTarget = obtainElement('#second');
 
 		console.log('el elemento es: ');
 		console.log(objTarget);
 		let secInstance = new Sec();
-		secInstance.setPosGrados(0);
+		secInstance.setPosDegrees(0);
 		secInstance.setObjtarget(objTarget);
 		secInstance.setObjName('#second');
 
