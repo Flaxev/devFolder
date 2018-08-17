@@ -1,5 +1,5 @@
 
-export default function obtainelement (objName) {
+export default function obtainElement (objName) {
 	
 	
 	return document.querySelector(objName);

@@ -8,7 +8,7 @@ export default class Sec extends ClockHand {
 	}
 
 
-	sectodeg (sec) {
+	secToDeg (sec) {
 		let deg= ((360/60)*sec);
 				
 		return deg;

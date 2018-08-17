@@ -5,24 +5,25 @@ export default class Hour extends ClockHand {
 	constructor(){ 
 		super();
 	}
-	sectodeg (sec) {
+	secToDeg (sec) {
 		let deg= ((360/12/60/60)*sec);
         
 		return deg;
 	}
     
-	mintodeg (min) {
+	minToDeg (min) {
 		let deg= ((360/12/60)*min);    
 		return deg;
 	}
 				
-	hourtodeg (hour) {
+	hourToDeg (hour) {
 		let deg= ((360/12)*hour);    
 		return deg;
 	}
+
+	totalDegs (hour,min,sec){
+
+		var Total=this.hourToDeg(hour)+this.minToDeg(min)+this.secToDeg(sec);
+		return Total;
+	}
 }
-
-
-// static create(objname,posgrados,possecs, utils) {
-// 	ClockHand.create(objname,posgrados, utils, Hour);
-// }

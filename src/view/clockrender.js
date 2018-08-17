@@ -1,32 +1,28 @@
-
-
 import TheTime from '../model/thetime.js';
 import boxFact from '../magicbox/boxfact.js';
 
 
-
-
-export default function renderview () {
-	
+export default function renderView () {
 	
 	var VarDBtime = new TheTime(30,50,14); //secs, mins , hours
 
-	// var hourhand = new HourHand('#hour',0);
-	// var minutehand = new min('#minute',0);
-	// var secondhand = new sec('#second',0);
+	var currentHour = VarDBtime.getHours();
+	var currentMin = VarDBtime.getMinutes();
+	var currentSec = VarDBtime.getSeconds();
 	var hourHand=boxFact.createHour();
 	var minuteHand=boxFact.createMin();
 	var secondHand=boxFact.createSec();
-	hourHand.movepositiondeg(hourHand.hourtodeg(VarDBtime.gethours())+hourHand.mintodeg(VarDBtime.getminutes())+hourHand.sectodeg(VarDBtime.gethours()));
-	minuteHand.movepositiondeg(minuteHand.mintodeg(VarDBtime.getminutes())+minuteHand.sectodeg(VarDBtime.getseconds()));
-	secondHand.movepositiondeg(secondHand.sectodeg(VarDBtime.getseconds()));
 
-	var degreees=secondHand.posGrados;
+	hourHand.movepositiondeg(hourHand.totalDegs(currentHour,currentMin,currentSec));
+	minuteHand.movepositiondeg(minuteHand.totalDegs(currentMin,currentSec));
+	secondHand.movepositiondeg(secondHand.secToDeg(currentSec));
+
+	var degreees=secondHand.posDegrees;
      
 	console.log('retorno los grados:'+ degreees);
-	console.log('tiempo son '+VarDBtime.getseconds()+'segundos');
-	console.log('las horas son '+hourHand.hourtodeg(VarDBtime.gethours())+' grados');
+	console.log('tiempo son '+VarDBtime.getSeconds()+'segundos');
+	console.log('las horas son '+hourHand.hourToDeg(VarDBtime.getHours())+' grados');
 
-	console.log('Son las '+VarDBtime.gethours()+':'+VarDBtime.getminutes()+':'+VarDBtime.getseconds());
+	console.log('Son las '+VarDBtime.getHours()+':'+VarDBtime.getMinutes()+':'+VarDBtime.getSeconds());
 
 }
