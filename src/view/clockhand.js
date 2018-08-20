@@ -31,6 +31,7 @@ export default class ClockHand {
 
 	calcRotation (angle,isAfter){
 
+		console.log('-----------------------------------------------------------------------------');
 
 		console.log('posDegrees is ' + this.posDegrees);
 		console.log('angle input is ' + angle);
@@ -40,10 +41,13 @@ export default class ClockHand {
 		var angleRel=angle%360;
 		var absdiference=Math.abs(angleRel-posRel);
 		var absrealdiference = Math.abs(angle-this.posDegrees);
-		var isRelBigger=true;
+		var isAngleRelBigger=true;
+
+		console.log('posRel is'+posRel);
+		console.log('angleRel is'+angleRel);
 		
-		if(angleRel<posRel){
-			isRelBigger=false;
+		if(posRel>angleRel){
+			isAngleRelBigger=false;
 		}
 		console.log('absdiference is '+ absdiference);
 
@@ -53,7 +57,7 @@ export default class ClockHand {
 		var hasSpinned = 0;
 
 		if(diferenceSpins>0){hasSpinned =1;}
-		console.log('isBigger '+isRelBigger);
+		console.log('isAngleRelBigger '+isAngleRelBigger);
 		console.log('abs real diference is ' + absrealdiference);
 		console.log('number of angle spins over 360= '+angleSpins);
 		console.log('number of position spins over 360= '+posDegSpins);
@@ -62,25 +66,32 @@ export default class ClockHand {
 
 		//point is after the initial position
 		if(isAfter){
-			if(isRelBigger){
+			
+			if(isAngleRelBigger){
+				console.log('case 1');
 				rotate=this.posDegrees+(absdiference)+(360*hasSpinned*(diferenceSpins-1));
 			}
 
 			else{
+				console.log('case 2');
 				let distTo360=360-posRel;
-				rotate=angleRel+distTo360;
+				console.log('distTo360 '+distTo360);
+				rotate=angleRel+distTo360+(hasSpinned*(posRel*2+(360*diferenceSpins)));
 			}
 				
 		}
 
 		//point is before the inital position
 		else{
-			if(isRelBigger){
+			if(isAngleRelBigger){
+				console.log('case 3');
 				let distTo360=360-angleRel;
+				console.log('distTo360 '+distTo360);
 				rotate=-(distTo360+posRel)-(360*hasSpinned*(diferenceSpins-1));
 			}
 			
 			else{
+				console.log('case 4');
 				rotate=-absdiference;
 			}
 		}

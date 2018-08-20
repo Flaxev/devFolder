@@ -94,6 +94,15 @@ describe('assert the correct rotation for any given value (either greater or low
 
 		});
 
+		it('should return 1485 for input of 45 posDegrees of 1440 and isAfter', function(){
+			//test initial status
+			hourHand.setPosDegrees(1440);
+			isAfter=false;
+			//execute
+			expect(hourHand.calcRotation(45,isAfter)).toBe(1485);
+
+		});
+
 
 
 
