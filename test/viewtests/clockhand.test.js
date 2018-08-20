@@ -34,7 +34,6 @@ describe('assert the correct rotation for any given value (either greater or low
 		});
 
 
-
 		it('should rotate + 270 for input of 0, posDegrees of 90 and isAfter',function(){
 			//test initial status
 			hourHand.setPosDegrees(90);
@@ -65,7 +64,7 @@ describe('assert the correct rotation for any given value (either greater or low
 
 	});
 
-	describe('For any given positive value the clock should position to any place given its initial position',function(){
+	describe('For any range between 0 and +x the clock should position to any place given its initial position',function(){
 
 		it('should return -360 for input of 360, posDegrees of 720 and !isAfter',function(){
 			//test initial status
@@ -94,15 +93,36 @@ describe('assert the correct rotation for any given value (either greater or low
 
 		});
 
-		it('should return 1485 for input of 45 posDegrees of 1440 and isAfter', function(){
+		it('should return -1440 for input of 45 posDegrees of 1485 and isAfter', function(){
 			//test initial status
-			hourHand.setPosDegrees(1440);
+			hourHand.setPosDegrees(1485);
 			isAfter=false;
 			//execute
-			expect(hourHand.calcRotation(45,isAfter)).toBe(1485);
+			expect(hourHand.calcRotation(45,isAfter)).toBe(-1440);
+			
 
 		});
 
+
+		it('should return 1485 for input of 45 posDegrees of 1485 and isAfter', function(){
+			//test initial status
+			hourHand.setPosDegrees(45);
+			isAfter=true;
+			//execute
+			expect(hourHand.calcRotation(1440,isAfter)).toBe(1485);
+			
+
+		});
+
+		it('should return 1485 for input of 45 posDegrees of 1485 and isAfter', function(){
+			//test initial status
+			hourHand.setPosDegrees(45);
+			isAfter=false;
+			//execute
+			expect(hourHand.calcRotation(1440,isAfter)).toBe(-45);
+			
+
+		});
 
 
 
