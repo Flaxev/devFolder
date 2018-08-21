@@ -7,7 +7,7 @@ export default class TheTime {
 		this.date.setHours(hours);    
 	}
 
-	getseconds(){
+	getSeconds(){
 
 		return (this.date.getSeconds());
 	}

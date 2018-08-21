@@ -1,6 +1,6 @@
 //ABSTRACT CLASS
-
-
+import TheTime from '../model/thetime.js';
+import boxFact from '../magicbox/boxfact.js';
 export default class ClockHand {
 
 	constructor (){   
@@ -23,10 +23,11 @@ export default class ClockHand {
 	rotateTheElement(angle){
 		// console.log('object name '+this.objName);
 		// console.log('objtarget:'+this.objTarget);
-		// console.log('angle calc'+angle);
+		console.log('angle calc'+angle);
 		// console.log('im gonna do this.'+this.objTarget+'style.transform = rotate'+angle+'+deg');
 		this.objTarget.style.transform = 'rotate(' + angle + 'deg)';
-
+		this.posDegrees = angle;
+		return angle;
 	}
 
 	calcRotation (angle,isAfter){
@@ -60,7 +61,9 @@ export default class ClockHand {
 		var angleSpins= (Math.trunc(angle/360));
 		var posDegSpins= (Math.trunc(this.posDegrees/360));
 		var diferenceSpins=(Math.trunc(absrealdiference/360));
-		var hasSpinned = 0;
+		var hasSpinned = 0;var hourHand=boxFact.createHour();
+		var minuteHand=boxFact.createMin();
+		var secondHand=boxFact.createSec();
 
 		// console.log('Computed Values chart : ////////////////////////////////////////////');
 
@@ -96,7 +99,7 @@ export default class ClockHand {
 		//point is before the inital position !isAfter
 		else{
 			if(isAngleRelBigger){
-				// console.log('case 3');
+				// consoleit.log('case 3');
 				if(!hasSpinned){
 					rotate=-compAbsDiference;
 				}
@@ -117,7 +120,7 @@ export default class ClockHand {
 	}
  
 	movePositionDeg (angle,isAfter) {
-		this.rotateTheElement(this.calcRotation(angle,isAfter));
+		return this.rotateTheElement(this.calcRotation(angle,isAfter));
 	}
 
 }

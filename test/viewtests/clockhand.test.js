@@ -13,6 +13,20 @@ describe('assert the correct rotation for any given value (either greater or low
 		isAfter = true;
 	});
 
+	// describe('Assert the return of movePositionDeg', function(){
+
+	// 	it('should return -360 for input of 360, posDegrees of 720 and !isAfter',function(){
+	// 		//test initial status
+	// 		hourHand.setPosDegrees(720);
+	// 		isAfter = false;
+	// 		//execute
+	// 		// expect(hourHand.movePositionDeg(360,isAfter)).toBe(-360);
+
+	// 	});
+
+
+	// } );
+
 	describe('For values between 0 and 360 the clock should positionate to any place given its initial position',function(){
 
 		it('should rotate 45 deg for input of 45, posDegrees of 0 and isAfter',function(){
