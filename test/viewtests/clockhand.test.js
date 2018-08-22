@@ -1,33 +1,57 @@
-import ClockHand from '../../src/view/clockhand.js';
+
 import boxFact from '../../src/magicbox/boxfact.js';
+jest.mock('../../src/magicbox/objectselector.js');
 import obtainElement from '../../src/magicbox/objectselector.js';
 
 var hourHand=boxFact.createHour();
 var isAfter = true;
 
 
+
+
 describe('assert the correct rotation for any given value (either greater or lower than 360)',function(){
 
 	beforeEach(function(){
 		hourHand.setPosDegrees(0);
+		hourHand.setPosValue(0);
 		isAfter = true;
+		var dummyElement = document.createElement('div');
+		obtainElement.mockImplementation(() => dummyElement);
+		hourHand.setObjtarget(obtainElement('default'));
 	});
 
-	// describe('Assert the return of movePositionDeg', function(){
-
-	// 	it('should return -360 for input of 360, posDegrees of 720 and !isAfter',function(){
-	// 		//test initial status
-	// 		hourHand.setPosDegrees(720);
-	// 		isAfter = false;
-	// 		//execute
-	// 		// expect(hourHand.movePositionDeg(360,isAfter)).toBe(-360);
-
-	// 	});
 
 
-	// } );
+	//Tests for operation
+
+	describe('movePositionDeg should return the same value as expected on calcrotation',function(){
+
+		it('should return the same value as if it was a calcrotation', function(){
+
+			//test initial status
+			hourHand.setPosDegrees(180);
+			isAfter = false;
+			//execute
+			expect(hourHand.movePositionDeg(90,isAfter)).toBe(-90);
+
+
+		});
+	});
+
+	//Tests for calculation
 
 	describe('For values between 0 and 360 the clock should positionate to any place given its initial position',function(){
+
+		it('should rotate -90 deg for input of 90, pos Degrees of 180 and !isfalse',function(){
+
+			//test initial status
+			hourHand.setPosDegrees(180);
+			isAfter = false;
+			//execute
+			expect(hourHand.movePositionDeg(90,isAfter)).toBe(-90);
+
+		});
+
 
 		it('should rotate 45 deg for input of 45, posDegrees of 0 and isAfter',function(){
 			//test initial status
@@ -38,6 +62,16 @@ describe('assert the correct rotation for any given value (either greater or low
 
 		});
 
+		it('should rotate -180 deg for input of 0, posDegrees of 180 and !isAfter',function(){
+			//test initial status
+			isAfter=false;
+			hourHand.setPosDegrees(180);
+			//execute
+			expect(hourHand.calcRotation(0,isAfter)).toBe(-180);
+		
+		});
+
+		
 		it('should rotate -45 deg for input of 0, posDegrees of 45 and !isAfter',function(){
 			//test initial status
 			isAfter=false;

@@ -1,12 +1,14 @@
 //ABSTRACT CLASS
 import TheTime from '../model/thetime.js';
 import boxFact from '../magicbox/boxfact.js';
+
 export default class ClockHand {
 
 	constructor (){   
 		var objName;
 		var objTarget;
-		var posDegrees;    
+		var posDegrees;
+		var posValue;    
 	}
 	setObjName(objName) {
 		this.objName=objName;
@@ -19,14 +21,28 @@ export default class ClockHand {
 	setPosDegrees(posDegrees){
 		this.posDegrees=posDegrees;
 	}
+
+	setPosValue(posValue){
+		this.posValue=posValue;
+	}
+
+	getPosValue(){
+		return this.posValue;
+	}
+	
+	
 	
 	rotateTheElement(angle){
-		// console.log('object name '+this.objName);
+		console.log('object name '+this.objName);
 		// console.log('objtarget:'+this.objTarget);
+
+		console.log('posDegrees Before '+ this.posDegrees);
 		console.log('angle calc'+angle);
-		// console.log('im gonna do this.'+this.objTarget+'style.transform = rotate'+angle+'+deg');
+		console.log('im gonna do this.'+this.objTarget+' '+this.objName+' style.transform = rotate'+angle+'+deg');
+		// angle=this.posDegrees+angle;
 		this.objTarget.style.transform = 'rotate(' + angle + 'deg)';
-		this.posDegrees = angle;
+		this.posDegrees=angle;
+		console.log('posDegrees After '+ this.posDegrees);
 		return angle;
 	}
 
@@ -34,7 +50,9 @@ export default class ClockHand {
 
 		// console.log('-----------------------------------------------------------------------------');
 
-		
+		console.log('object '+this.objName+' Angle input is'+angle);
+		console.log('object '+this.objName+' After is'+isAfter);
+
 		var rotate=0;
 		var posRel=this.posDegrees%360; //0 to pos
 		var angleRel=angle%360; //0 to angle
@@ -114,14 +132,26 @@ export default class ClockHand {
 			}
 		}
 		
-		this.posDegrees=rotate;	
-
+		
+		console.log('object '+this.objName+' Angle output is'+rotate);
 		return rotate;
 	}
  
 	movePositionDeg (angle,isAfter) {
-		return this.rotateTheElement(this.calcRotation(angle,isAfter));
+		console.log('object '+this.objName+' Angle input on move is'+angle);
+		
+		var valangle = angle;
+		var rotationresult = this.calcRotation(valangle,isAfter);
+
+		console.log('calc rotation value'+this.objName+' result'+rotationresult);
+
+		return this.rotateTheElement(rotationresult);
 	}
+
+
+	
+
+	
 
 }
 

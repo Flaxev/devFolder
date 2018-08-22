@@ -1,24 +1,25 @@
 import ClockHand from '../view/clockhand.js';
 
 export default class Hour extends ClockHand {	
-	constructor(){ 
+	constructor(){	
 		super();
 	}
-	sectodeg (sec) {
+	secToDeg (sec) {
 		let deg= ((360/12/60/60)*sec);
         
 		return deg;
 	}
     
-	mintodeg (min) {
+	minToDeg (min) {
 		let deg= ((360/12/60)*min);    
 		return deg;
 	}
 				
-	hourtodeg (hour) {
+	hourToDeg (hour) {
 		let deg= ((360/12)*hour);    
 		return deg;
 	}
+
 }
 
 

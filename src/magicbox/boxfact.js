@@ -12,11 +12,12 @@ var boxFact = {
 
 	createClockHand : function () {
 
-		console.log('el elemento es: ');
-		console.log(objTarget);
+		// console.log('el elemento es: ');
+		// console.log(objTarget);
 		let ClockHandInstance = new ClockHand();
 		let objTarget = obtainElement('#clock');
-		ClockHandInstance.setPosDegrees('0');
+		ClockHandInstance.setPosDegrees(0);
+		ClockHandInstance.setPosValue(0);
 		ClockHandInstance.setObjName('#clock');
 		ClockHandInstance.setObjtarget(objTarget); 
 
@@ -27,12 +28,11 @@ var boxFact = {
 
 		let hourInstance = new Hour();
 
-		
 		let objTarget = obtainElement('#hour');
-
-		console.log('el elemento es: ');
-		console.log(objTarget);
+		// console.log('el elemento es: ');
+		// console.log(objTarget);
 		hourInstance.setPosDegrees(0);
+		hourInstance.setPosValue(0);
 		hourInstance.setObjtarget(objTarget);
 		hourInstance.setObjName('#hour');
 
@@ -43,10 +43,11 @@ var boxFact = {
 
 		let minInstance = new Min();
 		let objTarget = obtainElement('#minute');
-		console.log('el elemento es: ');
-		console.log(objTarget);
+		// console.log('el elemento es: ');
+		// console.log(objTarget);
 		
 		minInstance.setPosDegrees(0);
+		minInstance.setPosValue(0);
 		minInstance.setObjtarget(objTarget);
 		minInstance.setObjName('#minute');
 
@@ -57,10 +58,11 @@ var boxFact = {
 		
 		let objTarget = obtainElement('#second');
 
-		console.log('el elemento es: ');
-		console.log(objTarget);
+		// console.log('el elemento es: ');
+		// console.log(objTarget);
 		let secInstance = new Sec();
 		secInstance.setPosDegrees(0);
+		secInstance.setPosValue(0);
 		secInstance.setObjtarget(objTarget);
 		secInstance.setObjName('#second');
 
