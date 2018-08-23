@@ -1,39 +1,39 @@
 export default class TheTime {
 				
-	constructor(hours,mins,secs){
+	constructor(hours,mins,secs) {
 		this.date = new Date(); 
 		this.date.setSeconds(secs);
 		this.date.setMinutes(mins);
 		this.date.setHours(hours);    
 	}
 
-	getSeconds(){
+	getSeconds() {
 
 		return (this.date.getSeconds());
 	}
 
 
 
-	getminutes(){
+	getminutes() {
 
 		return(this.date.getMinutes());
 	}
 
-	gethours(){
+	gethours() {
 		return(this.date.getHours());
 	}
 
-	setSeconds(sec){
+	setSeconds(sec) {
 
 		this.date.setSeconds(sec);			
 	}
 
-	setMinutes(min){
+	setMinutes(min) {
 
 		this.date.setSeconds(min);			
 	}
 
-	setHours(hour){
+	setHours(hour) {
 
 		this.date.setSeconds(hour);			
 	}

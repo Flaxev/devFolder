@@ -1,4 +1,4 @@
-export default function loadDoc(){
+export default function loadDoc() {
 
 	var xhttp = new XMLHttpRequest();	
 	xhttp.onreadystatechange = function () {
