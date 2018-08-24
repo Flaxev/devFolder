@@ -1,4 +1,3 @@
-
 import ClockHand from '../view/clockhand.js';
 import Hour from '../view/hour.js';
 import Min from '../view/min.js';
@@ -17,6 +16,7 @@ var boxFact = {
 		let ClockHandInstance = new ClockHand();
 		let objTarget = obtainElement('#clock');
 		ClockHandInstance.setPosDegrees(0);
+		ClockHandInstance.setPosAbsDegrees(0);
 		ClockHandInstance.setPosValue(0);
 		ClockHandInstance.setObjName('#clock');
 		ClockHandInstance.setObjtarget(objTarget); 
@@ -32,6 +32,7 @@ var boxFact = {
 		// console.log('el elemento es: ');
 		// console.log(objTarget);
 		hourInstance.setPosDegrees(0);
+		hourInstance.setPosAbsDegrees(0);
 		hourInstance.setPosValue(0);
 		hourInstance.setObjtarget(objTarget);
 		hourInstance.setObjName('#hour');
@@ -47,6 +48,7 @@ var boxFact = {
 		// console.log(objTarget);
 		
 		minInstance.setPosDegrees(0);
+		minInstance.setPosAbsDegrees(0);
 		minInstance.setPosValue(0);
 		minInstance.setObjtarget(objTarget);
 		minInstance.setObjName('#minute');
@@ -62,6 +64,7 @@ var boxFact = {
 		// console.log(objTarget);
 		let secInstance = new Sec();
 		secInstance.setPosDegrees(0);
+		secInstance.setPosAbsDegrees(0);
 		secInstance.setPosValue(0);
 		secInstance.setObjtarget(objTarget);
 		secInstance.setObjName('#second');

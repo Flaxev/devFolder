@@ -8,6 +8,7 @@ export default class ClockHand {
 		this.objName = null;
 		this.objTarget = null;
 		this.posDegrees = null;
+		this.posAbsDegrees = null;
 		this.posValue = null;
 	}
 	setObjName(objName) {
@@ -21,6 +22,10 @@ export default class ClockHand {
 	setPosDegrees(posDegrees) {
 		this.posDegrees = posDegrees;
 	}
+	
+	setPosAbsDegrees(posAbsDegrees) {
+		this.posAbsDegrees = posAbsDegrees;
+	}
 
 	setPosValue(posValue) {
 		this.posValue = posValue;
@@ -28,6 +33,14 @@ export default class ClockHand {
 
 	getPosValue() {
 		return this.posValue;
+	}
+
+	getPosDegrees () {
+		return this.posDegrees;
+	}
+
+	getPosAbsDegrees () {
+		return this.posAbsDegrees;
 	}
 	
 	
@@ -45,7 +58,7 @@ export default class ClockHand {
 		return angle;
 	}
 
-	calcRotation (angleInput,isAfter) {
+	rotationValue (angleInput,isAfter) {
 
 		console.log('case of input ' + angleInput);
 		let currentAngle = this.posDegrees;
@@ -55,8 +68,11 @@ export default class ClockHand {
 		//auxiliary variables 
 		let diferAngle = null;
 		let relRotation = null;
-		
 
+
+		const rotationrelative = this.rotationCalc(angleInput);
+		return this.rotationTranslate(rotationrelative);
+		/*
 		if((!isAfter) && ((relCurrentAngle - angleInput) < (Math.trunc(currentAngle / 360)))) {
 
 			if(currentAngle < 360 ) {
@@ -130,14 +146,119 @@ export default class ClockHand {
 
 		}
 		
+		*/
+	}
+	
+	//rotation Translate will transform the desired rotation into a value that produces the desired effect on values for transform-rotate css method.
+	rotationTranslate(rotationRelative) {
+		let rotateValue = null;
+		const currentAbsDegPosition = this.getPosAbsDegrees();
+		let error = true;
 		
-	}		
- 
+		if(rotationRelative == 0) {
+			rotateValue = currentAbsDegPosition;
+		}
+		
+		if(-360 < rotationRelative < 360) {
+
+			rotateValue = currentAbsDegPosition + rotationRelative;
+			error = !error;
+		}
+
+		else { 
+			
+			rotateValue = currentAbsDegPosition + rotationRelative; 
+			error = !error;
+		}
+
+		if(error) { console.log ('error input'); }
+		
+		return rotateValue;
+	}
+	
+	//rotation calc will return the value diference that should be moved to attain the desired position
+	rotationCalc(positionWanted) {
+
+		let rotationRelative = null;
+
+		if(0 <= positionWanted <= 360) {
+			
+			const currentDegPosition = this.getPosDegrees();
+			const positionDiference = positionWanted - currentDegPosition;
+			let error = true;
+
+			if(positionWanted > currentDegPosition) {
+
+				rotationRelative = positionDiference;
+				error = !error;	
+			}
+
+			if(positionWanted < currentDegPosition) {
+
+				rotationRelative = positionDiference;
+				error = !error;
+
+			}
+
+			if(positionWanted == currentDegPosition) {rotationRelative = 0; error = !error;}
+
+			if (error) {
+
+				console.log('error value');
+
+			}
+		}
+
+		
+
+		return(rotationRelative);
+
+	}
+
+
+
+	translateToAbsoluteAngle (desiredAngle, spinNumber, clockwise) {
+
+		let positionWanted = null;
+		let ckWise = 0;
+		
+		if(spinNumber > 0) {
+		
+			if(clockwise) {
+
+				ckWise = 1;
+
+			}
+
+			else {
+
+				ckWise = -1;
+			}
+
+			positionWanted = (desiredAngle + (spinNumber * 360)) * ckWise;
+
+		}
+
+		else { 
+
+			positionWanted = desiredAngle ;
+
+		}
+
+		return positionWanted;
+	}
+	
+
+
+	
+
+
+
 	movePositionDeg (angle,isAfter) {
 		console.log('object ' + this.objName + ' Angle input on move is' + angle);
 		
 		var valangle = angle;
-		var rotationresult = this.calcRotation(valangle,isAfter);
+		var rotationresult = this.rotationValue(valangle,isAfter);
 
 		console.log('calc rotation value' + this.objName + ' result' + rotationresult);
 

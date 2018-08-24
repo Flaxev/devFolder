@@ -1,5 +1,5 @@
 
-import ClockHand from '../src/view/clockhand.js';
+/*import ClockHand from '../src/view/clockhand.js';
 import HourHand from '../src/view/hour.js';
 import min from '../src/view/min.js';
 import sec from '../src/view/sec.js';
@@ -38,3 +38,5 @@ describe('clockhand moveposition testing', ()=> {
 	});
 
 });
+
+*/

@@ -109,7 +109,7 @@ function rendernow (VarDBtime,hourHand,minuteHand,secondHand,isAfter) {
 	secondHand.setPosValue(seconds);
 	//moveTotalRotation finish
 
-	// moveTotalRotation (VarDBtime,hour,hourIsAfter,minutes,minIsAfter,seconds,secIsAfter,hourHand,minuteHand,secondHand);
+	moveTotalRotation (VarDBtime,hour,hourIsAfter,minutes,minIsAfter,seconds,secIsAfter,hourHand,minuteHand,secondHand);
 
 
 	// hourHand.movePositionDeg(hourHand.hourToDeg(VarDBtime.gethours())+hourHand.minToDeg(VarDBtime.getminutes())+hourHand.secToDeg(VarDBtime.gethours()),hourIsAfter);

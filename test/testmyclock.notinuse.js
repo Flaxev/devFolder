@@ -1,5 +1,5 @@
 
-import hour from '../src/view/hour.js';
+/*import hour from '../src/view/hour.js';
 import min from '../src/view/min.js';
 import sec from '../src/view/sec.js';
 import TheTime from '../src/model/thetime.js';
@@ -48,3 +48,4 @@ describe('Testing the basic degrees calculation position in each child class', f
 // console.log("hour position of"+timerdb.gethours()+" hour "+hourhand.hourtodeg(timerdb.gethours()));
 // console.log("hour position of"+timerdb.getminutes()+" hour "+minhand.mintodeg(timerdb.getminutes()));
 // console.log("sec position of "+timerdb.getseconds()+" sec "+sechand.sectodeg(timerdb.getseconds()));
+*/
