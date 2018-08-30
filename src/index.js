@@ -5,27 +5,21 @@ import rendernow from './view/clockrender';
 
 
 
-const VarDBtime = new TheTime(14,50,30,0); //hours, mins, secs, millisecs
+const VarDBtime = new TheTime(0,0,0,0); //hours, mins, secs, millisecs
 
 const hourHand = boxFact.createHour();
 const minuteHand = boxFact.createMin();
 const secondHand = boxFact.createSec();
 let haschanged = false;
 
+VarDBtime.updateCurrentRealTime();
 rendernow(VarDBtime,hourHand,minuteHand,secondHand);
 
-VarDBtime.setSeconds(57);
-VarDBtime.setHours(23);
-VarDBtime.setMinutes(59);
+// VarDBtime.setSeconds(57);
+// VarDBtime.setHours(23);
+// VarDBtime.setMinutes(59);
 
-setTimeout ( function () {
 
-	VarDBtime.setSeconds(0);
-	VarDBtime.setHours(0);
-	VarDBtime.setMinutes(0);
-	haschanged = true;
-
-}, 10000);
 
 setInterval( function() { 
 
@@ -47,6 +41,7 @@ setInterval( function() {
 }, 1000);
 
 
+
 function timeflow () {
 
 	const secCurrent = VarDBtime.getSeconds();
@@ -64,3 +59,11 @@ function timeflow () {
 
 
 
+// setTimeout ( function () {
+
+// 	VarDBtime.setSeconds(0);
+// 	VarDBtime.setHours(0);
+// 	VarDBtime.setMinutes(0);
+// 	haschanged = true;
+
+// }, 10000);

@@ -49,6 +49,31 @@ export default class TheTime {
 		this.date.setHours(hour);			
 	}
 
+	updateCurrentRealTime () {
+
+		let currentTime = {
+			hour : null,
+			min : null,
+			sec: null 
+		};
+		const d = new Date();
+	
+		currentTime.hour = d.getHours();
+		currentTime.min = d.getMinutes();
+		currentTime.sec = d.getSeconds();
+		
+		this.setHours(currentTime.hour);
+		this.setMinutes(currentTime.min);
+		this.setSeconds(currentTime.sec);
+
+		console.log(' REAL TIME IS : Hours: ' + currentTime.hour + ' Minutes: ' + currentTime.min + ' Seconds: ' + currentTime.sec);
+		
+	
+		return currentTime;
+	
+	
+	}
+
 
 }
 
