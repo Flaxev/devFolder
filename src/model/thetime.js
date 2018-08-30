@@ -68,10 +68,22 @@ export default class TheTime {
 
 		console.log(' REAL TIME IS : Hours: ' + currentTime.hour + ' Minutes: ' + currentTime.min + ' Seconds: ' + currentTime.sec);
 		
-	
+		window.haschanged = true;
+		
 		return currentTime;
 	
 	
+	}
+
+	updateByInput (Hr,min,sec) {
+
+		this.setHours(Hr);
+		this.setMinutes(min);
+		this.setSeconds(sec);
+
+		window.haschanged = true;
+
+		
 	}
 
 
