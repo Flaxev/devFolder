@@ -16,8 +16,20 @@ export default class Sec extends ClockHand {
 
 
 	
+	milisecToDeg (milisec) {
+
+		let degmili = (((360 / 60) / 1000) * milisec);
+
+		return degmili;
+
+	}
+
+
+
+	secTotalAngle (DBTime) {
+		
+		let degTotal = ((this.secToDeg(DBTime.getSeconds())) + (this.milisecToDeg(DBTime.getMiliseconds())));
+		return (degTotal);
+	
+	}
 }
-
-
-
-

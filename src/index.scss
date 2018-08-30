@@ -66,7 +66,24 @@
 /* Optional: Use transition for animation. */
 #hour,
 #minute,
-#second {
+// #second 
+{
   transform-origin: 300px 300px;
   transition: transform .5s ease-in-out;
+}
+
+.clocktrans {
+  transform-origin: 300px 300px;
+  transition: transform .5s ease-in-out;
+}
+
+.clocknotrans {
+  transform-origin: 300px 300px;
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }

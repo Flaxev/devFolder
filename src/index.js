@@ -1,40 +1,65 @@
 import TheTime from './model/thetime.js';
 import boxFact from './magicbox/boxfact.js';
 import './index.scss';
-import renderview from './view/clockrender';
-// import rendernow from './view/clockrender';
-
-
-var VarDBtime = new TheTime(14,50,30); //hours, mins , secs
-
-var hourHand = boxFact.createHour();
-var minuteHand = boxFact.createMin();
-var secondHand = boxFact.createSec();
-
-// console.log('the current seconds are ' +VarDBtime.getSeconds());
-
-// renderview(VarDBtime,hourHand,minuteHand,secondHand);
-
-// VarDBtime.setSeconds(10);
-// console.log('the current seconds are ' +VarDBtime.getSeconds());
-
-// renderview(VarDBtime,hourHand,minuteHand,secondHand);
-
-renderview(VarDBtime,hourHand,minuteHand,secondHand);
-
-VarDBtime.setSeconds(15);
-
-console.log('the current seconds are ' + VarDBtime.getSeconds());
-
-renderview(VarDBtime,hourHand,minuteHand,secondHand);
+import rendernow from './view/clockrender';
 
 
 
-// VarDBtime.setSeconds();
-// VarDBtime.setMinutes();
-// VarDBtime.setHours();
+const VarDBtime = new TheTime(14,50,30,0); //hours, mins, secs, millisecs
+
+const hourHand = boxFact.createHour();
+const minuteHand = boxFact.createMin();
+const secondHand = boxFact.createSec();
+let haschanged = false;
+
+rendernow(VarDBtime,hourHand,minuteHand,secondHand);
+
+VarDBtime.setSeconds(57);
+VarDBtime.setHours(23);
+VarDBtime.setMinutes(59);
+
+setTimeout ( function () {
+
+	VarDBtime.setSeconds(0);
+	VarDBtime.setHours(0);
+	VarDBtime.setMinutes(0);
+	haschanged = true;
+
+}, 10000);
+
+setInterval( function() { 
+
+	if(haschanged) {
+
+		rendernow(VarDBtime,hourHand,minuteHand,secondHand);
+		haschanged = false;
+
+	}
+
+	else {
+
+		timeflow ();
+
+	}
+	
 
 
+}, 1000);
+
+
+function timeflow () {
+
+	const secCurrent = VarDBtime.getSeconds();
+
+	let secNew = 0;
+
+	secNew = secCurrent + 1;
+
+	VarDBtime.setSeconds(secNew);
+	rendernow(VarDBtime,hourHand,minuteHand,secondHand);
+	
+	
+}
 
 
 

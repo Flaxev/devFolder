@@ -16,6 +16,17 @@ export default class Min extends ClockHand {
 		return deg;
 	}
 
+
+	minTotalAngle (DBTime) {
+
+		const min = DBTime.getminutes();
+		const sec = DBTime.getSeconds();
+
+		let minuteAngle = this.minToDeg(min) + this.secToDeg(sec);
+		
+		return minuteAngle;
+	}
+
 	
 }
 
