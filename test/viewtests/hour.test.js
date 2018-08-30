@@ -1,10 +1,8 @@
 import boxFact from '../../src/magicbox/boxfact.js';
 import obtainElement from '../../src/magicbox/objectselector.js';
-xdescribe('assert the hour class methods functionality', function() {
+describe('assert the hour class methods functionality', function() {
 	
 	var hourHand = boxFact.createHour();
-
-
 
 	describe('assert the correct conversion of each *ToDeg method',function () {
 
