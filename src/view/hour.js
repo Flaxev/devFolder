@@ -1,4 +1,4 @@
-import ClockHand from '../view/clockhand.js';
+import ClockHand from './clockhand.js';
 
 export default class Hour extends ClockHand {	
 	constructor() {	

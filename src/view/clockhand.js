@@ -50,7 +50,7 @@ export default class ClockHand {
 
 
 	//Main rotation
-	rotationRotate (positionWanted,clockwise) {
+	rotationRotate (positionWanted, clockwise) {
 
 		let angle = null;
 		let angleRel = null;
@@ -58,12 +58,12 @@ export default class ClockHand {
 		let spins = null;
 
 
-		angleRel = this.rotationCalcAngle(positionWanted,clockwise);
+		angleRel = this.rotationCalcAngle(positionWanted, clockwise);
 		
 		if(Math.abs(positionWanted - currentDegPosition) >= 360) {
 
 			spins = this.rotationCalcSpins(positionWanted);
-			console.log('CalcSpins result = ' + spins);
+			
 			angleRel = this.rotationAddSpins(angleRel, spins, clockwise);
 
 		}
@@ -79,7 +79,7 @@ export default class ClockHand {
 		return angle;
 	}
 
-	rotationCalcAngle(positionWanted,clockwise) {
+	rotationCalcAngle(positionWanted, clockwise) {
 
 		let rotationRelative = null;
 		let currentPosition = this.getPosDegrees();
@@ -101,7 +101,7 @@ export default class ClockHand {
 
 					error = false;
 
-					console.log('case 1');
+					
 
 				}
 
@@ -109,7 +109,7 @@ export default class ClockHand {
 
 					rotationRelative = complementaryPositionCurrent + positionWanted;
 
-					console.log('case 2');
+					
 
 					error = false;
 
@@ -123,7 +123,6 @@ export default class ClockHand {
 
 					rotationRelative = - (complementaryPositionWanted + currentPosition);
 
-					console.log('case 3');
 
 					error = false;
 
@@ -133,7 +132,6 @@ export default class ClockHand {
 
 					rotationRelative = - (currentPosition - positionWanted);
 
-					console.log('case 4');
 
 					error = false;
 
@@ -227,7 +225,7 @@ export default class ClockHand {
 
 	rotationRotateAction(angle) {
 		
-		console.log('im gonna do this.' + this.objTarget + ' ' + this.objName + ' style.transform = rotate' + angle + '+deg');
+		// console.log('im gonna do this.' + this.objTarget + ' ' + this.objName + ' style.transform = rotate' + angle + '+deg');
 		
 		this.objTarget.style.transform = 'rotate(' + angle + 'deg)';
 		

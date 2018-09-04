@@ -33,6 +33,8 @@
 
         "space-infix-ops": ["error", {"int32Hint": false}],
 
-        "space-before-blocks": ["error"]
+        "space-before-blocks": ["error"],
+
+        "comma-spacing": ["error", { "before": false, "after": true }]
     }
 }

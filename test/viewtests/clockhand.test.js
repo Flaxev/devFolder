@@ -12,11 +12,11 @@ let desiredAngle = 0;
 
 
 
-describe('assert the correct rotation for any given value (either greater or lower than 360)',function() {
+describe('assert the correct rotation for any given value (either greater or lower than 360)', function() {
 
 	beforeEach(function() {
 
-		console.log('START NEW TEST ITERATION');
+		
 
 		spinNumber = 0;
 		clockwise = true;
@@ -50,7 +50,7 @@ describe('assert the correct rotation for any given value (either greater or low
 
 	describe('Test for calculation of PositionWanted with function rotationAddSpins', function () { 
 
-		it('Should return 720 deg  WHEN desiredAngle of 0 deg, spinNumber 2 and clockwise',function() { 
+		it('Should return 720 deg  WHEN desiredAngle of 0 deg, spinNumber 2 and clockwise', function() { 
 
 			//GIVEN
 			spinNumber = 2;
@@ -62,7 +62,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			expect(result).toBe(720);
 		});
 
-		it('Should return -720 deg  WHEN desiredAngle of 0 deg, spinNumber 2 and !clockwise',function() { 
+		it('Should return -720 deg  WHEN desiredAngle of 0 deg, spinNumber 2 and !clockwise', function() { 
 
 			//GIVEN
 			spinNumber = 2;
@@ -74,7 +74,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			expect(result).toBe(-720);
 		});
 
-		it('Should return 45 deg  WHEN desiredAngle of 45 deg, spinNumber 0 and !clockwise',function() { 
+		it('Should return 45 deg  WHEN desiredAngle of 45 deg, spinNumber 0 and !clockwise', function() { 
 
 			//GIVEN
 			spinNumber = 0;
@@ -86,7 +86,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			expect(result).toBe(45);
 		});
 
-		it('Should return 45 deg  WHEN desiredAngle of 45 deg, spinNumber 0 and clockwise',function() { 
+		it('Should return 45 deg  WHEN desiredAngle of 45 deg, spinNumber 0 and clockwise', function() { 
 			//GIVEN
 			spinNumber = 0;
 			clockwise = true;
@@ -97,7 +97,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			expect(result).toBe(45);
 		});
 
-		it('Should return 720 deg  WHEN desiredAngle of 0 deg, spinNumber 2 and clockwise',function() { 
+		it('Should return 720 deg  WHEN desiredAngle of 0 deg, spinNumber 2 and clockwise', function() { 
 			//GIVEN
 			spinNumber = 2;
 			clockwise = true;
@@ -112,111 +112,111 @@ describe('assert the correct rotation for any given value (either greater or low
 
 	describe('Test for rotation Math calculation with function rotationCalcAngle', function () {
 
-		describe('For GIVEN values between 0 to 360 deg and current positions from 0 to 360 deg',function() {
+		describe('For GIVEN values between 0 to 360 deg and current positions from 0 to 360 deg', function() {
 
-			it('Should return 90 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 90 deg and clockwise',function() { 
+			it('Should return 90 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 90 deg and clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(0);
 				//WHEN
-				result = hourHand.rotationCalcAngle(90,clockwise);
+				result = hourHand.rotationCalcAngle(90, clockwise);
 				//THEN
 				expect(result).toBe(90);
 			});
 			
-			it('Should return 180 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 180 deg and clockwise',function() { 
+			it('Should return 180 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 180 deg and clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(0);
 				//WHEN
-				result = hourHand.rotationCalcAngle(180,clockwise);
+				result = hourHand.rotationCalcAngle(180, clockwise);
 				//THEN
 				expect(result).toBe(180);
 			});
 
-			it('Should return 90 deg GIVEN currentDegPosition of 90 deg WHEN positionWanted of 180 deg and clockwise',function() { 
+			it('Should return 90 deg GIVEN currentDegPosition of 90 deg WHEN positionWanted of 180 deg and clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(90);
 				//WHEN
-				result = hourHand.rotationCalcAngle(180,clockwise);
+				result = hourHand.rotationCalcAngle(180, clockwise);
 				//THEN
 				expect(result).toBe(90);
 
 			});
 
 
-			it('Should return -90 deg GIVEN currentDegPosition of 180 deg WHEN positionWanted of 90 deg and !clockwise',function() { 
+			it('Should return -90 deg GIVEN currentDegPosition of 180 deg WHEN positionWanted of 90 deg and !clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(180);
 				clockwise = false;
 				//WHEN
-				result = hourHand.rotationCalcAngle(90,clockwise);
+				result = hourHand.rotationCalcAngle(90, clockwise);
 				//THEN
 				expect(result).toBe(-90);
 				
 			});
 
-			it('Should return 0 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 0 deg, !clockwise',function() { 
+			it('Should return 0 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 0 deg, !clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(0);
 				clockwise = false;
 				//WHEN
-				result = hourHand.rotationCalcAngle(0,clockwise);
+				result = hourHand.rotationCalcAngle(0, clockwise);
 				//THEN
 				expect(result).toBe(0);
 				
 			});
 
-			it('Should return 0 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 720 deg, clockwise',function() { 
+			it('Should return 0 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 720 deg, clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(0);
 				
 				//WHEN
-				result = hourHand.rotationCalcAngle(720,clockwise);
+				result = hourHand.rotationCalcAngle(720, clockwise);
 				//THEN
 				expect(result).toBe(0);
 				
 			});
 
-			it('Should return 270 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 270 deg, clockwise',function() { 
+			it('Should return 270 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 270 deg, clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(0);
 				//WHEN
-				result = hourHand.rotationCalcAngle(270,clockwise);
+				result = hourHand.rotationCalcAngle(270, clockwise);
 				//THEN
 				expect(result).toBe(270);
 				
 			});
 
-			it('Should return 180 deg GIVEN currentDegPosition of 45 deg WHEN positionWanted of 270 deg, clockwise',function() { 
+			it('Should return 180 deg GIVEN currentDegPosition of 45 deg WHEN positionWanted of 270 deg, clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(45);
 				//WHEN
-				result = hourHand.rotationCalcAngle(270,clockwise);
+				result = hourHand.rotationCalcAngle(270, clockwise);
 				//THEN
 				expect(result).toBe(225);
 				
 			});
 
-			it('Should return -180 deg GIVEN currentDegPosition of 315 deg WHEN positionWanted of 135 deg, !clockwise',function() { 
+			it('Should return -180 deg GIVEN currentDegPosition of 315 deg WHEN positionWanted of 135 deg, !clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(315);
 				clockwise = false;
 				//WHEN
-				result = hourHand.rotationCalcAngle(135,clockwise);
+				result = hourHand.rotationCalcAngle(135, clockwise);
 				//THEN
 				expect(result).toBe(-180);
 				
 			});
 
-			it('Should return -180 deg GIVEN currentDegPosition of 90 deg WHEN positionWanted of 270 deg, !clockwise',function() { 
+			it('Should return -180 deg GIVEN currentDegPosition of 90 deg WHEN positionWanted of 270 deg, !clockwise', function() { 
 
 				console.log('this is the case');
 
@@ -224,19 +224,19 @@ describe('assert the correct rotation for any given value (either greater or low
 				hourHand.setPosDegrees(90);
 				clockwise = false;
 				//WHEN
-				result = hourHand.rotationCalcAngle(270,clockwise);
+				result = hourHand.rotationCalcAngle(270, clockwise);
 				//THEN
 				expect(result).toBe(-180);
 				
 			});
 			
-			it('Should return 180 deg GIVEN currentDegPosition of 270 deg WHEN positionWanted of 90 deg, clockwise',function() { 
+			it('Should return 180 deg GIVEN currentDegPosition of 270 deg WHEN positionWanted of 90 deg, clockwise', function() { 
 
 				//GIVEN
 				hourHand.setPosDegrees(270);
 				
 				//WHEN
-				result = hourHand.rotationCalcAngle(90,clockwise);
+				result = hourHand.rotationCalcAngle(90, clockwise);
 				//THEN
 				expect(result).toBe(180);
 				
@@ -251,7 +251,7 @@ describe('assert the correct rotation for any given value (either greater or low
 		
 		describe('For GIVEN values from -360 to any positive value', function () { 
 
-			it('Should return 90 for GIVEN currentAbsDegPosition 0 WHEN rotationRelative of 90 degrees',function() { 
+			it('Should return 90 for GIVEN currentAbsDegPosition 0 WHEN rotationRelative of 90 degrees', function() { 
 
 				//GIVEN
 				hourHand.setPosAbsDegrees(0);
@@ -261,7 +261,7 @@ describe('assert the correct rotation for any given value (either greater or low
 				expect(result).toBe(90);
 			});
 
-			it('Should return 0 for GIVEN currentAbsDegPosition 90 WHEN rotationRelative of -90 degrees',function() { 
+			it('Should return 0 for GIVEN currentAbsDegPosition 90 WHEN rotationRelative of -90 degrees', function() { 
 
 				//GIVEN
 				hourHand.setPosAbsDegrees(90);
@@ -271,7 +271,7 @@ describe('assert the correct rotation for any given value (either greater or low
 				expect(result).toBe(0);
 			});
 
-			it('Should return 90 for GIVEN currentAbsDegPosition 45 WHEN rotationRelative of 45 degrees',function() { 
+			it('Should return 90 for GIVEN currentAbsDegPosition 45 WHEN rotationRelative of 45 degrees', function() { 
 
 				//GIVEN
 				hourHand.setPosAbsDegrees(45);
@@ -281,7 +281,7 @@ describe('assert the correct rotation for any given value (either greater or low
 				expect(result).toBe(90);
 			});
 			
-			it('Should return 360 for GIVEN currentAbsDegPosition 720 WHEN rotationRelative of -360 degrees',function() { 
+			it('Should return 360 for GIVEN currentAbsDegPosition 720 WHEN rotationRelative of -360 degrees', function() { 
 
 				//GIVEN
 				hourHand.setPosAbsDegrees(720);
@@ -291,7 +291,7 @@ describe('assert the correct rotation for any given value (either greater or low
 				expect(result).toBe(360);
 			});
 			
-			it('Should return 720 for GIVEN currentAbsDegPosition 0 WHEN rotationRelative of 720 degrees',function() { 
+			it('Should return 720 for GIVEN currentAbsDegPosition 0 WHEN rotationRelative of 720 degrees', function() { 
 
 				//GIVEN
 				hourHand.setPosAbsDegrees(0);
@@ -301,7 +301,7 @@ describe('assert the correct rotation for any given value (either greater or low
 				expect(result).toBe(720);
 			});
 
-			it('Should return 735 for GIVEN currentAbsDegPosition 720 WHEN rotationRelative of 15 degrees',function() { 
+			it('Should return 735 for GIVEN currentAbsDegPosition 720 WHEN rotationRelative of 15 degrees', function() { 
 
 				//GIVEN
 				hourHand.setPosAbsDegrees(720);
@@ -311,7 +311,7 @@ describe('assert the correct rotation for any given value (either greater or low
 				expect(result).toBe(735);
 			});
 
-			it('Should return 360 for GIVEN currentAbsDegPosition -360 WHEN rotationRelative of 720 degrees',function() { 
+			it('Should return 360 for GIVEN currentAbsDegPosition -360 WHEN rotationRelative of 720 degrees', function() { 
 
 				//GIVEN
 				hourHand.setPosAbsDegrees(-360);
@@ -321,7 +321,7 @@ describe('assert the correct rotation for any given value (either greater or low
 				expect(result).toBe(360);
 			});
 
-			it('Should return 0 for GIVEN currentAbsDegPosition 1440 WHEN rotationRelative of -1440 degrees',function() { 
+			it('Should return 0 for GIVEN currentAbsDegPosition 1440 WHEN rotationRelative of -1440 degrees', function() { 
 
 				//GIVEN
 				hourHand.setPosAbsDegrees(1440);
@@ -377,7 +377,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosDegrees(360);
 			hourHand.setPosAbsDegrees(360); 
 			//WHEN
-			result = hourHand.rotationRotate(1,clockwise);
+			result = hourHand.rotationRotate(1, clockwise);
 			//THEN
 			expect(result).toBe(361);
 		});
@@ -387,7 +387,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosDegrees(359);
 			hourHand.setPosAbsDegrees(359); 
 			//WHEN
-			result = hourHand.rotationRotate(360,clockwise);
+			result = hourHand.rotationRotate(360, clockwise);
 			//THEN
 			expect(result).toBe(360);
 		});
@@ -397,7 +397,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosDegrees(0);
 			hourHand.setPosAbsDegrees(360); 
 			//WHEN
-			result = hourHand.rotationRotate(1,clockwise);
+			result = hourHand.rotationRotate(1, clockwise);
 			//THEN
 			expect(result).toBe(361);
 		});
@@ -407,7 +407,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosDegrees(0);
 			hourHand.setPosAbsDegrees(0); 
 			//WHEN
-			result = hourHand.rotationRotate(45,clockwise);
+			result = hourHand.rotationRotate(45, clockwise);
 			//THEN
 			expect(result).toBe(45);
 		});
@@ -418,7 +418,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(45);
 			clockwise = false; 
 			//WHEN
-			result = hourHand.rotationRotate(0,clockwise);
+			result = hourHand.rotationRotate(0, clockwise);
 			//THEN
 			expect(result).toBe(0);
 		});
@@ -429,7 +429,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(180);
 			clockwise = false; 
 			//WHEN
-			result = hourHand.rotationRotate(0,clockwise);
+			result = hourHand.rotationRotate(0, clockwise);
 			//THEN
 			expect(result).toBe(0);
 		});
@@ -440,7 +440,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(270);
 			clockwise = false; 
 			//WHEN
-			result = hourHand.rotationRotate(0,clockwise);
+			result = hourHand.rotationRotate(0, clockwise);
 			//THEN
 			expect(result).toBe(0);
 		});
@@ -451,7 +451,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(0);
 			
 			//WHEN
-			result = hourHand.rotationRotate(360,clockwise);
+			result = hourHand.rotationRotate(360, clockwise);
 			//THEN
 			expect(result).toBe(360);
 		});
@@ -462,7 +462,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(0);
 			
 			//WHEN
-			result = hourHand.rotationRotate(0,clockwise);
+			result = hourHand.rotationRotate(0, clockwise);
 			//THEN
 			expect(result).toBe(0);
 		});
@@ -473,7 +473,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(720);
 			clockwise = false;
 			//WHEN
-			result = hourHand.rotationRotate(0,clockwise);
+			result = hourHand.rotationRotate(0, clockwise);
 			//THEN
 			expect(result).toBe(720);
 		});
@@ -484,7 +484,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(720);
 			
 			//WHEN
-			result = hourHand.rotationRotate(15,clockwise);
+			result = hourHand.rotationRotate(15, clockwise);
 			//THEN
 			expect(result).toBe(735);
 		});
@@ -496,7 +496,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			clockwise = false;
 			
 			//WHEN
-			result = hourHand.rotationRotate(0,clockwise);
+			result = hourHand.rotationRotate(0, clockwise);
 			//THEN
 			expect(result).toBe(720);
 		});
@@ -507,7 +507,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(270);
 			
 			//WHEN
-			result = hourHand.rotationRotate(90,clockwise);
+			result = hourHand.rotationRotate(90, clockwise);
 			//THEN
 			expect(result).toBe(450);
 		});
@@ -518,7 +518,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(450);
 			clockwise =	false;
 			//WHEN
-			result = hourHand.rotationRotate(270,clockwise);
+			result = hourHand.rotationRotate(270, clockwise);
 			//THEN
 			expect(result).toBe(270);
 		});
@@ -529,7 +529,7 @@ describe('assert the correct rotation for any given value (either greater or low
 			hourHand.setPosAbsDegrees(1170);
 			clockwise =	false;
 			//WHEN
-			result = hourHand.rotationRotate(270,clockwise);
+			result = hourHand.rotationRotate(270, clockwise);
 			//THEN
 			expect(result).toBe(990);
 		});

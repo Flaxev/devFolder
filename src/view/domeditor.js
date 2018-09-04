@@ -11,7 +11,7 @@ export default class DomEditor {
 	
 	}
 
-	createinputform (forminputaction,VarDBtime) {
+	createinputform (forminputaction, VarDBtime) {
 	
 		let secInput = this.createinputtextelement('Second Input');
 		
@@ -23,6 +23,8 @@ export default class DomEditor {
 		let inputbutton = document.createElement('button');
 		inputbutton.type = 'text';
 		let t = document.createTextNode('Set The Clock');
+
+		
 		inputbutton.appendChild(t);
 	
 		inputbutton.onclick = ()=> forminputaction(VarDBtime);	
@@ -41,7 +43,7 @@ export default class DomEditor {
 		return inputbox;
 	}
 
-	createButtonForaction(btnName,action) {
+	createButtonForaction(btnName, action) {
 
 		var btn = document.createElement('BUTTON');
 		var t = document.createTextNode(btnName);
@@ -52,8 +54,14 @@ export default class DomEditor {
 
 	}
 
+	addClickListenerToDom(elementid, action) {
 
-	forminputaction (VarDBtime) {
+		document.getElementById(elementid).addEventListener('click', function() {action(this);});
+
+	}
+
+
+	forminputAction (VarDBtime) {
 
 
 		let hourInput = document.getElementById('Hour Input').value;
@@ -61,11 +69,24 @@ export default class DomEditor {
 		let secInput = document.getElementById('Second Input').value;
 
 
-		VarDBtime.updateByInput(hourInput,minInput,secInput);
+		VarDBtime.updateByInput(hourInput, minInput, secInput);
 
 	
 	}
 
+	changeTicTimeAction (VarDBtime, hourHand, minuteHand, secondHand, clock) {
+
+		
+		let ticTimeInput = document.getElementById('ticTimeInput').value;
+
+		ticTimeInput = ticTimeInput * 1000;
+		clock.changeTransTime(ticTimeInput);
+		clock.setTicTime(ticTimeInput);
+		clock.setFlow(VarDBtime, hourHand, minuteHand, secondHand, clock);
+
+	}
+
+	
 
 
 

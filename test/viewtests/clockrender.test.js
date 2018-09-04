@@ -1,9 +1,9 @@
 import boxFact from '../../src/magicbox/boxfact';
 jest.mock('../../src/magicbox/objectselector.js');
-import obtainElement from '../../src/magicbox/objectselector.js';
-import TheTime from '../../src/model/thetime.js';
+import obtainElement from '../../src/magicbox/objectselector';
+import TheTime from '../../src/model/thetime';
 
-let VarDBTime = new TheTime(0,0,0,0); //hours, mins , secs
+let VarDBTime = new TheTime(0, 0, 0, 0); //hours, mins , secs
 
 let hourHand = boxFact.createHour();
 let minHand = boxFact.createMin();
@@ -17,7 +17,7 @@ let desiredAngle = 0;
 
 beforeEach(function() {
 
-	console.log('START NEW TEST ITERATION');
+	
 	result = null;
 	let dummyElement = document.createElement('div');
 	obtainElement.mockImplementation(() => dummyElement);
@@ -44,7 +44,7 @@ beforeEach(function() {
 
 describe('Test updatebyinput function', function() {
 
-	describe('Should change in the model same input as provided for each hr,min,sec',function() {
+	describe('Should change in the model same input as provided for each hr,min,sec', function() {
 
 		it('Should change Time model Sec to input', function() { 
 
@@ -56,7 +56,7 @@ describe('Test updatebyinput function', function() {
 			hour = 10;
 			min = 5;
 			sec = 3;
-			result = VarDBTime.updateByInput(hour,min,sec);
+			result = VarDBTime.updateByInput(hour, min, sec);
 			//THEN
 			expect(VarDBTime.getSeconds()).toBe(sec);
 		});
@@ -71,7 +71,7 @@ describe('Test updatebyinput function', function() {
 			hour = 10;
 			min = 5;
 			sec = 3;
-			result = VarDBTime.updateByInput(hour,min,sec);
+			result = VarDBTime.updateByInput(hour, min, sec);
 			//THEN
 			expect(VarDBTime.getminutes()).toBe(min);
 		});
@@ -87,7 +87,7 @@ describe('Test updatebyinput function', function() {
 			hour = 10;
 			min = 5;
 			sec = 3;
-			result = VarDBTime.updateByInput(hour,min,sec);
+			result = VarDBTime.updateByInput(hour, min, sec);
 			//THEN
 			expect(VarDBTime.gethours()).toBe(hour);
 		});

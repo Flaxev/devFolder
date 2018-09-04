@@ -5,7 +5,7 @@ import boxFact from '../magicbox/boxfact.js';
 
 
 
-function clockwise (time1,time2) {
+function clockwise (time1, time2) {
 
 	let clockwise =	true;
 	if (!( (time1 == 0) && (time2 == 59))) {
@@ -16,7 +16,7 @@ function clockwise (time1,time2) {
 	return clockwise;
 }
 
-function clockwisehr(time1,time2) {
+function clockwisehr(time1, time2) {
 	let clockwise =	true;
 	if (!( (time1 == 0) && (time2 == 23))) {
 		if(time1 < time2) {
@@ -29,7 +29,7 @@ function clockwisehr(time1,time2) {
 }
 
 
-export default function rendernow (VarDBtime,hourHand,minuteHand,secondHand) {
+export default function rendernow (VarDBtime, hourHand, minuteHand, secondHand) {
 
 	var hour = VarDBtime.gethours();	
 	var	currentHour = hourHand.getPosValue();
@@ -38,27 +38,18 @@ export default function rendernow (VarDBtime,hourHand,minuteHand,secondHand) {
 	var seconds = VarDBtime.getSeconds();
 	var	currentSec = secondHand.getPosValue();
 	
-	console.log('Hours: ' + hour + ' Minutes: ' + minutes + ' Seconds: ' + seconds);
-
-	console.log('second is old = ' + seconds);
-	console.log('second is new = ' + currentSec);
-	console.log('minute is old = ' + minutes);
-	console.log('minute is new = ' + currentMin);
-	console.log('hour is old = ' + hour);
-	console.log('hour is new = ' + currentHour);
+	
 
 
-	const hrClockwise = clockwisehr(hour,currentHour);
+	const hrClockwise = clockwisehr(hour, currentHour);
 	
-	console.log('hour is after = ' + hrClockwise);
 	
-	const minClockwise = clockwise(minutes,currentMin);
 	
-	console.log('min is after = ' + minClockwise);
+	const minClockwise = clockwise(minutes, currentMin);
 	
-	const secClockwise = clockwise(seconds,currentSec);
 	
-	console.log('second is after = ' + secClockwise);
+	const secClockwise = clockwise(seconds, currentSec);
+	
 
 
 	hourHand.setPosValue(hour);
@@ -72,16 +63,14 @@ export default function rendernow (VarDBtime,hourHand,minuteHand,secondHand) {
 	const secAngle = secondHand.secTotalAngle(VarDBtime);
 
 
-	console.log('hour total Angle is :' + hourAngle);
-	console.log('minute total Angle is :' + minuteAngle);
-	console.log('second total Angle is :' + secAngle);
 
 
-	const hourrotation = hourHand.rotationRotate(hourAngle,hrClockwise);
+
+	const hourrotation = hourHand.rotationRotate(hourAngle, hrClockwise);
 	
-	const minuterotation = minuteHand.rotationRotate(minuteAngle,minClockwise);
+	const minuterotation = minuteHand.rotationRotate(minuteAngle, minClockwise);
 	
-	const secrotation = secondHand.rotationRotate(secAngle,secClockwise);
+	const secrotation = secondHand.rotationRotate(secAngle, secClockwise);
 
 	var rotationresult = {
 		hourrotation : hourrotation,

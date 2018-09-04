@@ -1,4 +1,4 @@
-import ClockHand from '../view/clockhand.js';
+import ClockHand from './clockhand.js';
 
 export default class Sec extends ClockHand {
 
@@ -7,6 +7,13 @@ export default class Sec extends ClockHand {
 		super();
 	}
 
+	degToSec (deg) {
+
+		let sec = deg * (60 / 360);
+
+		return sec;
+
+	}
 
 	secToDeg (sec) {
 		let deg = ((360 / 60) * sec);

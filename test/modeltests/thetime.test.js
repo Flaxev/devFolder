@@ -2,7 +2,7 @@ import TheTime from '../../src/model/thetime.js';
 
 
 
-const VarDBtime = new TheTime(0,0,0,0); //hours, mins, secs, millisecs
+const VarDBtime = new TheTime(0, 0, 0, 0); //hours, mins, secs, millisecs
 let result = null;
 
 beforeEach (function () {

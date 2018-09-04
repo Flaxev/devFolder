@@ -4,10 +4,10 @@ describe('assert the hour class methods functionality', function() {
 	
 	var hourHand = boxFact.createHour();
 
-	describe('assert the correct conversion of each *ToDeg method',function () {
+	describe('assert the correct conversion of each *ToDeg method', function () {
 
 	//this tests will be practice tests not a real implementation
-		it('should return 180 deg for a input of 21600 seconds',function() {
+		it('should return 180 deg for a input of 21600 seconds', function() {
 			expect(hourHand.secToDeg(21600)).toBe(180);
 		});
 

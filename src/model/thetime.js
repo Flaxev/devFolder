@@ -1,6 +1,6 @@
 export default class TheTime {
 				
-	constructor(hours,mins,secs,milisecs) {
+	constructor(hours, mins, secs, milisecs) {
 		this.date = new Date(); 
 		this.date.setSeconds(secs);
 		this.date.setMinutes(mins);
@@ -75,7 +75,7 @@ export default class TheTime {
 	
 	}
 
-	updateByInput (Hr,min,sec) {
+	updateByInput (Hr, min, sec) {
 
 		this.setHours(Hr);
 		this.setMinutes(min);
