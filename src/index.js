@@ -21,66 +21,24 @@ console.log('Tic Time ' + clock.getTicTime());
 
 
 
-var btn = domUtils.createButtonForaction('Update To Real Time', () => VarDBtime.updateCurrentRealTime());
+var btn = domUtils.createButtonForaction('Update To Real Time', ()=> VarDBtime.updateCurrentRealTime());
 document.body.appendChild(btn);
 
 let inputform = domUtils.createinputform(domUtils.forminputAction, VarDBtime);
 document.body.appendChild(inputform);  
 let inputTicTime = domUtils.createinputtextelement('ticTimeInput');
-var ticTimeBtn = domUtils.createButtonForaction('Change Tic Time', () => domUtils.changeTicTimeAction(VarDBtime, hourHand, minuteHand, secondHand, clock));
+var ticTimeBtn = domUtils.createButtonForaction('Change Tic Time', ()=> domUtils.changeTicTimeAction(VarDBtime, hourHand, minuteHand, secondHand, clock));
 document.body.appendChild(inputTicTime);
 document.body.appendChild(ticTimeBtn);
 VarDBtime.updateCurrentRealTime();
 
 rendernow(VarDBtime, hourHand, minuteHand, secondHand);
 
-document.getElementById('clockPage').addEventListener('mousedown', ()=> dragToTime.getClickPoint(1));
-document.getElementById('clockPage').addEventListener('mouseup', ()=> dragToTime.getClickPoint(2));
+document.getElementById('clockPage').addEventListener('mousedown', ()=> dragToTime.mouseDownAction(clock));
+document.getElementById('clockPage').addEventListener('mouseup', ()=> dragToTime.mouseUpAction(VarDBtime));
 
-// domUtils.addClickListenerToDom('clockPage', dragToTime.getClickPoint);
+
 
 
 clock.setFlow(VarDBtime, hourHand, minuteHand, secondHand, clock);
-
-// setInterval( function() { 
-// 	console.log('TICTIMEIS   ' + clock.getTicTime());
-// 	rendernow(VarDBtime,hourHand,minuteHand,secondHand);
-	
-// },clock.getTicTime() / 5);
-
-
-
-
-// setInterval( function() {
-
-// 	console.log('TICTIMEIS   ' + clock.getTicTime());
-// 	rendernow(VarDBtime,hourHand,minuteHand,secondHand);
-// 	clock.timeflow (VarDBtime,hourHand,minuteHand,secondHand);
-
-// },clock.getTicTime());
-
-
-
-
-
-
-// setInterval( function() { 
-
-// 	console.log('The window has changed  ' + window.haschanged);
-
-// 	if(window.haschanged) {
-// 		clock.changeTransTime(this.ticTime);
-// 		rendernow(VarDBtime,hourHand,minuteHand,secondHand);
-// 		window.haschanged = false;
-
-// 	}
-
-// 	else {
-// 		clock.changeTransTime(this.ticTime);
-// 		clock.timeflow (VarDBtime,hourHand,minuteHand,secondHand);
-
-// 	}
-
-
-
 

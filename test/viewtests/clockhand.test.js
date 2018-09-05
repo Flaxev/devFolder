@@ -31,22 +31,7 @@ describe('assert the correct rotation for any given value (either greater or low
 
 
 	});
-	//IT TEMPLATE
-	/*	
-
-			it('Should return 90 deg GIVEN currentDegPosition of 0 deg WHEN positionWanted of 90 deg and isAfter',function() { 
-
-				//GIVEN
-				hourHand.setPosDegrees(0);
-				//WHEN
-				result = hourHand.rotationCalc();
-				//THEN
-				expect(result).toBe(90);
-			});
-
-
-
-	*/
+	
 
 	describe('Test for calculation of PositionWanted with function rotationAddSpins', function () { 
 

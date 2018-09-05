@@ -13,6 +13,8 @@ function clockwise (time1, time2) {
 			clockwise = false;
 		}
 	}
+
+
 	return clockwise;
 }
 
@@ -25,6 +27,8 @@ function clockwisehr(time1, time2) {
 
 		}
 	}
+
+	
 	return clockwise;
 }
 

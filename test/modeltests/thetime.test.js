@@ -5,11 +5,13 @@ import TheTime from '../../src/model/thetime.js';
 const VarDBtime = new TheTime(0, 0, 0, 0); //hours, mins, secs, millisecs
 let result = null;
 
+
 beforeEach (function () {
 
 	VarDBtime.setSeconds(0);
 	VarDBtime.setHours(0);
 	VarDBtime.setMinutes(0);
+
 	
 });
 
@@ -55,5 +57,7 @@ describe('Testing for methods in the Model', function () {
 
 
 	});
+
+	
 
 });

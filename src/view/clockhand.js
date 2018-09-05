@@ -49,7 +49,7 @@ export default class ClockHand {
 
 
 
-	//Main rotation
+	
 	rotationRotate (positionWanted, clockwise) {
 
 		let angle = null;

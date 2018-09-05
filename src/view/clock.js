@@ -28,9 +28,19 @@ export default class Clock {
 		});
 	}
 
+	killFlow(FlowPid) { 
+
+		clearInterval(FlowPid);
+
+	}
+
+	setMyInterval() {
+
+	}
+
 	setFlow(VarDBtime, hourHand, minuteHand, secondHand, clock) {
 		if(!(clock.timeFlowPid == null)) {
-			clearInterval(this.timeFlowPid);
+			this.killFlow(this.timeFlowPid);
 		}
 
 		clock.timeFlowPid = setInterval( function() { 
@@ -42,7 +52,7 @@ export default class Clock {
 		
 
 		if(!(clock.renderFlowPid == null)) {
-			clearInterval(clock.renderFlowPid);
+			this.killFlow(clock.renderFlowPid);
 		}
 
 		clock.renderFlowPid	= setInterval( function() {

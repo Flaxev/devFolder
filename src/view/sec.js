@@ -9,7 +9,7 @@ export default class Sec extends ClockHand {
 
 	degToSec (deg) {
 
-		let sec = deg * (60 / 360);
+		let sec = deg / 6;
 
 		return sec;
 

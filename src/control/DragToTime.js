@@ -1,4 +1,6 @@
 import CalcTriangle from './CalcTriangle';
+import boxFact from '../magicbox/boxfact.js';
+
 export default class DragToTime {
 
 	
@@ -42,31 +44,28 @@ export default class DragToTime {
 		return reference;
 	}
 
+	mouseDownAction(clock) {
 
-	getClickPoint (pointNumber) {
+		this.setPointA(this.getClickPoint());
+		
+
+	}
+
+	mouseUpAction (VarDBtime) {
+		
+		this.setPointB(this.getClickPoint());
+
+		this.dragToTimeChangeSec(VarDBtime);
+	}
+
+	getClickPoint () {
 
 		const coordx = event.clientX;
 		const coordy = event.clientY;
 		
-
-		// const caster = call.id;
-
 		const point = [coordx, coordy];
 
-		
-
-		if(pointNumber == 1) {
-			this.setPointA(point);
-			console.log(this.getPointA());
-		}
-
-		else if (pointNumber == 2) {
-
-			this.setPointB(point);
-			console.log(this.getPointB());
-			this.calcPointAngleDiference();
-
-		}
+		return point;
 	}	
 
 
@@ -89,13 +88,31 @@ export default class DragToTime {
 
 	}
 
-	dragToTimeChangeSec() {
+	dragToTimeChangeSec(VarDBtime) {
 
-		const angledif = this.calcPointAngleDiference();
+		const secH = boxFact.createSec();
+
+		const angleDif = this.calcPointAngleDiference();
+
+		const absAngleDif = Math.abs(angleDif);
+
+		let secRotate = secH.degToSec(absAngleDif);
+
+		if(angleDif < 0) {secRotate = secRotate * -1;}
+
+		let currentSec = VarDBtime.getSeconds();
+
+		console.log('Current sec ' + currentSec + 'Sec Rotate ' + secRotate);
+
+		currentSec = currentSec + secRotate; 
+
+		VarDBtime.setSeconds(currentSec);
+
+
+
+
 
 		
-
-
 	}
 
 

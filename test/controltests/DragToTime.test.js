@@ -1,5 +1,6 @@
 import DragToTime from '../../src/control/DragToTime.js';
 
+
 let dragToTime = new DragToTime();
 let point = [0, 0];
 let result = null;
@@ -14,10 +15,6 @@ beforeEach(function() {
 	result = null;
 
 	
-
-
-
-
 });
 
 describe('Test the transformation from drag in the screen to a equivalent time change in the model', function() {
@@ -41,7 +38,6 @@ describe('Test the transformation from drag in the screen to a equivalent time c
 
 		});
 
-
 		it('Should get a point[1,2] in the Class props GIVEN  a point [1,2] previously set', function() {
 
 			//GIVEN
@@ -59,10 +55,6 @@ describe('Test the transformation from drag in the screen to a equivalent time c
 			expect(result[1]).toEqual(point[1]);
 
 		});
-
-
-
-
 
 	});
 
