@@ -23,8 +23,8 @@ export default class Hour extends ClockHand {
 
 	hrTotalAngle (DBTime) {
 
-		const hour = DBTime.gethours();
-		const min = DBTime.getminutes();
+		const hour = DBTime.getHours();
+		const min = DBTime.getMinutes();
 		const sec = DBTime.getSeconds();
 
 		let hourAngle = ((this.hourToDeg(hour) + this.minToDeg(min) + this.secToDeg(sec)) % 360);

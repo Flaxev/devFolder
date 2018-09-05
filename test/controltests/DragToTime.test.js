@@ -59,6 +59,26 @@ describe('Test the transformation from drag in the screen to a equivalent time c
 	});
 
 
+	//Sphere radius = 253.9
+
+	describe('Test The calcPoitAngleDiference function', function() {
+
+
+		it('Should return 90 Deg GIVEN Point A = , Point B =  ref = ', function() {
+
+			//given
+
+			dragToTime.setPointA();
+			dragToTime.setPointB();
+			dragToTime.set
+			
+		});
+
+
+	});
+	
+	
+
 
 
 });

@@ -33,7 +33,7 @@ describe('Testing for methods in the Model', function () {
 			//WHEN
 			result = VarDBtime.updateCurrentRealTime();
 			//THEN
-			expect(result.hour).toBe(VarDBtime.gethours());
+			expect(result.hour).toBe(VarDBtime.getHours());
 
 		});
 
@@ -42,7 +42,7 @@ describe('Testing for methods in the Model', function () {
 			//WHEN
 			result = VarDBtime.updateCurrentRealTime();
 			//THEN
-			expect(result.min).toBe(VarDBtime.getminutes());
+			expect(result.min).toBe(VarDBtime.getMinutes());
 
 		});
 

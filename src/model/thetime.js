@@ -19,12 +19,12 @@ export default class TheTime {
 		return (this.date.getSeconds());
 	}
 
-	getminutes() {
+	getMinutes() {
 
 		return(this.date.getMinutes());
 	}
 
-	gethours() {
+	getHours() {
 		return(this.date.getHours());
 	}
 
@@ -86,6 +86,12 @@ export default class TheTime {
 		
 	}
 
+	getTotalTimeInSeconds() {
+
+		const secs = ((this.getHours() * 3600) + (this.getMinutes() * 60) + this.getSeconds());
+
+		return secs;
+	}
 
 }
 

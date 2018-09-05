@@ -2,12 +2,26 @@ import ClockHand from '../view/clockhand.js';
 import Hour from '../view/hour.js';
 import Min from '../view/min.js';
 import Sec from '../view/sec.js';
+import DragToTime from '../control/DragToTime.js';
 import obtainElement from './objectselector.js';
 
 
 
 
+
 var boxFact = {
+
+
+	createDragToTime : function() {
+
+		let dragToTime = new DragToTime();
+		dragToTime.setPointA(0);
+		dragToTime.setPointB(0);
+		dragToTime.setReference(0);
+
+
+		return dragToTime;
+	},
 
 	createClockHand : function () {
 
@@ -21,7 +35,7 @@ var boxFact = {
 		ClockHandInstance.setObjName('#clock');
 		ClockHandInstance.setObjtarget(objTarget); 
 
-
+		return ClockHand;
 	},
 
 	createHour : function () {

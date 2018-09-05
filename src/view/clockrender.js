@@ -5,55 +5,75 @@ import boxFact from '../magicbox/boxfact.js';
 
 
 
-function clockwise (time1, time2) {
+// function clockwiseMinSec (time1, time2) {
 
-	let clockwise =	true;
-	if (!( (time1 == 0) && (time2 == 59))) {
-		if(time1 < time2) { 
-			clockwise = false;
-		}
-	}
+// 	let clockwise =	true;
+// 	if (!( (time1 == 0) && (time2 == 59))) {
+// 		if(time1 < time2) { 
+// 			clockwise = false;
+// 		}
+// 	}
 
 
-	return clockwise;
-}
+// 	return clockwise;
+// }
 
-function clockwisehr(time1, time2) {
-	let clockwise =	true;
-	if (!( (time1 == 0) && (time2 == 23))) {
-		if(time1 < time2) {
+// function clockwisehr(time1, time2) {
+// 	let clockwise =	true;
+// 	if (!( (time1 == 0) && (time2 == 23))) {
+// 		if(time1 < time2) {
 			
-			clockwise = false;
+// 			clockwise = false;
 
-		}
-	}
+// 		}
+// 	}
 
 	
+// 	return clockwise;
+// }
+
+function clockwiseTotal (time1, time2) {
+
+	let clockwise = true;
+
+	if(time1 < time2) {
+
+		clockwise = false;
+
+	}
+
 	return clockwise;
+
 }
+
 
 
 export default function rendernow (VarDBtime, hourHand, minuteHand, secondHand) {
 
-	var hour = VarDBtime.gethours();	
+	var hour = VarDBtime.getHours();	
 	var	currentHour = hourHand.getPosValue();
-	var minutes = VarDBtime.getminutes();
+	var minutes = VarDBtime.getMinutes();
 	var	currentMin = minuteHand.getPosValue();
 	var seconds = VarDBtime.getSeconds();
 	var	currentSec = secondHand.getPosValue();
-	
-	
 
 
-	const hrClockwise = clockwisehr(hour, currentHour);
+	const totalTimeCurrent = ((currentHour * 3600) + (currentMin  * 60) + (currentSec));
+	const totalTimeBefore = VarDBtime.getTotalTimeInSeconds();
 	
+	const clockwiseMovement = clockwiseTotal(totalTimeBefore, totalTimeCurrent);
+
+	console.log('clockwisemovement ' + clockwiseMovement);
+
+	// const hrClockwise = clockwisehr(hour, currentHour);
 	
+	// console.log('hrClockwise ' + hrClockwise);
 	
-	const minClockwise = clockwise(minutes, currentMin);
+	// const minClockwise = clockwiseMinSec(minutes, currentMin);
+	// console.log('minClockwise ' + minClockwise);
 	
-	
-	const secClockwise = clockwise(seconds, currentSec);
-	
+	// const secClockwise = clockwiseMinSec(seconds, currentSec);
+	// console.log('secClockwise ' + secClockwise);
 
 
 	hourHand.setPosValue(hour);
@@ -70,11 +90,11 @@ export default function rendernow (VarDBtime, hourHand, minuteHand, secondHand) 
 
 
 
-	const hourrotation = hourHand.rotationRotate(hourAngle, hrClockwise);
+	const hourrotation = hourHand.rotationRotate(hourAngle, clockwiseMovement);
 	
-	const minuterotation = minuteHand.rotationRotate(minuteAngle, minClockwise);
+	const minuterotation = minuteHand.rotationRotate(minuteAngle, clockwiseMovement);
 	
-	const secrotation = secondHand.rotationRotate(secAngle, secClockwise);
+	const secrotation = secondHand.rotationRotate(secAngle, clockwiseMovement);
 
 	var rotationresult = {
 		hourrotation : hourrotation,

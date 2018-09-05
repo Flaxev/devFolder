@@ -73,7 +73,7 @@ describe('Test updatebyinput function', function() {
 			sec = 3;
 			result = VarDBTime.updateByInput(hour, min, sec);
 			//THEN
-			expect(VarDBTime.getminutes()).toBe(min);
+			expect(VarDBTime.getMinutes()).toBe(min);
 		});
 
 
@@ -89,7 +89,7 @@ describe('Test updatebyinput function', function() {
 			sec = 3;
 			result = VarDBTime.updateByInput(hour, min, sec);
 			//THEN
-			expect(VarDBTime.gethours()).toBe(hour);
+			expect(VarDBTime.getHours()).toBe(hour);
 		});
 	});
 
