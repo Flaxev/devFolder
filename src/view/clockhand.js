@@ -52,29 +52,33 @@ export default class ClockHand {
 	
 	rotationRotate (positionWanted, clockwise) {
 
+		console.log('position wanted' + positionWanted );
+
 		let angle = null;
-		let angleRel = null;
+		let angleRelWanted = null;
 		const currentDegPosition = this.getPosDegrees();
 		let spins = null;
 
 
-		angleRel = this.rotationCalcAngle(positionWanted, clockwise);
+		angleRelWanted = this.rotationCalcAngle(positionWanted, clockwise);
 		
 		if(Math.abs(positionWanted - currentDegPosition) >= 360) {
 
 			spins = this.rotationCalcSpins(positionWanted);
 			
-			angleRel = this.rotationAddSpins(angleRel, spins, clockwise);
+			angleRelWanted = this.rotationAddSpins(angleRelWanted, spins, clockwise);
 
 		}
 		
-		angle = this.rotationTranslate(angleRel);
+		angle = this.rotationTranslate(angleRelWanted);
 
 		this.setPosDegrees(positionWanted % 360);
 		this.setPosAbsDegrees(angle);
 
 
 		this.rotationRotateAction(angle);
+
+		console.log('position wanted' + positionWanted + 'angle ' +  angle);
 
 		return angle;
 	}

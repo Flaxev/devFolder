@@ -35,7 +35,7 @@ VarDBtime.updateCurrentRealTime();
 rendernow(VarDBtime, hourHand, minuteHand, secondHand);
 
 document.getElementById('clockPage').addEventListener('mousedown', ()=> dragToTime.mouseDownAction(clock));
-document.getElementById('clockPage').addEventListener('mouseup', ()=> dragToTime.mouseUpAction(VarDBtime));
+document.getElementById('clockPage').addEventListener('mouseup', ()=> dragToTime.mouseUpAction(VarDBtime, secondHand));
 
 
 

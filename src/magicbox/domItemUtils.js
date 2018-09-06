@@ -12,4 +12,19 @@ let docItemUtils  = {
 		return reference;
 	},
 
+
+
+	getClickPoint : function() {
+
+		const coordx = event.clientX;
+		const coordy = event.clientY;
+		
+		const point = [coordx, coordy];
+
+		return point;
+	}
+
 };
+
+
+export default docItemUtils;

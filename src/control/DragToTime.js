@@ -1,5 +1,6 @@
 import CalcTriangle from './CalcTriangle';
 import boxFact from '../magicbox/boxfact.js';
+import docItemUtils from '../magicbox/domItemUtils.js';
 
 export default class DragToTime {
 
@@ -40,27 +41,17 @@ export default class DragToTime {
 
 	mouseDownAction() {
 
-		this.setPointA(this.getClickPoint());
+		this.setPointA(docItemUtils.getClickPoint());
 		
 
 	}
 
-	mouseUpAction (VarDBtime) {
+	mouseUpAction (VarDBtime, Hand) {
 		
-		this.setPointB(this.getClickPoint());
+		this.setPointB(docItemUtils.getClickPoint());
 
-		this.dragToTimeChangeSec(VarDBtime);
+		this.dragToTimeChange(VarDBtime, Hand);
 	}
-
-	getClickPoint () {
-
-		const coordx = event.clientX;
-		const coordy = event.clientY;
-		
-		const point = [coordx, coordy];
-
-		return point;
-	}	
 
 	calcPointAngleDiference() {
 		
@@ -68,28 +59,34 @@ export default class DragToTime {
 
 		let pointA = this.getPointA();
 		let pointB = this.getPointB();
-		const ref = this.getReference(); 
+		const ref = docItemUtils.getReference(); 
 
 		const angleA = calcTriangle.calcAngle(ref, pointA);
 		const angleB = calcTriangle.calcAngle(ref, pointB);
-		console.log('AngleA', angleA);
-		console.log('AngleB', angleB);
-		const angleDif = angleB - angleA;
-		console.log('AngleDiference', (angleDif));
+		// console.log('AngleA', angleA);
+		// console.log('AngleB', angleB);
+		let angleDif = angleB - angleA;
+		// console.log('AngleDiference', (angleDif));
+
+		angleDif = Math.round(angleDif);
+
+		// console.log('AngleDiference', (angleDif));
+
+		
 
 		return angleDif;
 
 	}
 
-	dragToTimeChangeSec(VarDBtime) {
+	dragToTimeChange(VarDBtime, Hand) {
 
-		const secH = boxFact.createSec();
+		// const secH = boxFact.createSec();
 
 		const angleDif = this.calcPointAngleDiference();
 
 		const absAngleDif = Math.abs(angleDif);
 
-		let secRotate = secH.degToSec(absAngleDif);
+		let secRotate = Hand.degToSec(absAngleDif);
 
 		if(angleDif < 0) {secRotate = secRotate * -1;}
 
